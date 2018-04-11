@@ -8,6 +8,7 @@ import io.netty.handler.codec.http.HttpRequest;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Properties;
 
 /**
  * @author:杨果
@@ -21,12 +22,17 @@ public class Constant {
         SAMEORIGIN//表示该页面可以在相同域名页面的 frame 中展示.
     }
 
-    public static Map<String, String> wafConfs = PropertiesUtil.getProperty("waf.properties");
-    public static int AcceptorThreads = Integer.parseInt(wafConfs.get("waf.acceptorThreads"));
-    public static int ClientToProxyWorkerThreads = Integer.parseInt(wafConfs.get("waf.clientToProxyWorkerThreads"));
-    public static int ProxyToServerWorkerThreads = Integer.parseInt(wafConfs.get("waf.proxyToServerWorkerThreads"));
-    public static int ServerPort = Integer.parseInt(wafConfs.get("waf.serverPort"));
+    public static Map<String, String> wafConfs = null;
+    public static int AcceptorThreads, ClientToProxyWorkerThreads, ProxyToServerWorkerThreads, ServerPort;
     public static X_Frame_Options X_Frame_Option = X_Frame_Options.SAMEORIGIN;
+
+    public static void initialize(Map<String, String> wafConfs){
+        Constant.wafConfs = wafConfs;
+        Constant.AcceptorThreads = Integer.parseInt(Constant.wafConfs.get("waf.acceptorThreads"));
+        Constant.ClientToProxyWorkerThreads = Integer.parseInt(Constant.wafConfs.get("waf.clientToProxyWorkerThreads"));
+        Constant.ProxyToServerWorkerThreads = Integer.parseInt(Constant.wafConfs.get("waf.proxyToServerWorkerThreads"));
+        Constant.ServerPort = Integer.parseInt(Constant.wafConfs.get("waf.serverPort"));
+    }
 
     public static String getRealIp(HttpRequest httpRequest, ChannelHandlerContext channelHandlerContext) {
         List<String> headerValues = getHeaderValues(httpRequest, "X-Real-IP");
