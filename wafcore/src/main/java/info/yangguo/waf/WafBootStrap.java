@@ -3,15 +3,13 @@ package info.yangguo.waf;
 import info.yangguo.waf.util.NetUtils;
 import info.yangguo.waf.util.WafSelfSignedSslEngineSource;
 import io.netty.channel.ChannelHandlerContext;
-import io.netty.handler.codec.http.HttpObject;
 import io.netty.handler.codec.http.HttpRequest;
-import io.netty.handler.codec.http.HttpResponse;
 import net.lightbody.bmp.mitm.CertificateAndKeySource;
 import net.lightbody.bmp.mitm.KeyStoreFileCertificateSource;
 import net.lightbody.bmp.mitm.keys.ECKeyGenerator;
 import net.lightbody.bmp.mitm.manager.ImpersonatingMitmManager;
 import org.apache.commons.collections.ListUtils;
-import org.apache.commons.lang.ArrayUtils;
+import org.apache.commons.lang3.ArrayUtils;
 import org.littleshoot.proxy.*;
 import org.littleshoot.proxy.impl.DefaultHttpProxyServer;
 import org.littleshoot.proxy.impl.ThreadPoolConfiguration;
@@ -150,24 +148,7 @@ public class WafBootStrap {
                 .withFiltersSource(new HttpFiltersSourceAdapter() {
                     @Override
                     public HttpFilters filterRequest(HttpRequest originalRequest, ChannelHandlerContext ctx) {
-                        return new HttpFiltersAdapter(originalRequest, ctx){
-                            private long startTime;
-
-                            @Override
-                            public HttpResponse proxyToServerRequest(HttpObject httpObject) {
-                                if(httpObject instanceof HttpRequest){
-                                    this.startTime = System.currentTimeMillis();
-                                }
-                                return super.proxyToServerRequest(httpObject);
-                            }
-
-                            @Override
-                            public void serverToProxyResponseReceived() {
-                                long endTime = System.currentTimeMillis();
-                                System.out.println(endTime - startTime + "ms");
-                                super.serverToProxyResponseReceived();
-                            }
-                        };
+                        return new HttpFilterAdapterImpl(originalRequest, ctx);
                     }
                 });
 
