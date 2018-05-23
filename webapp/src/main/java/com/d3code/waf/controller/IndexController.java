@@ -9,10 +9,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * @author Aaron
  * @date 2018/4/16
  */
-@Controller("/admin/index")
-public class IndexController {
+@Controller
+public class IndexController extends BaseController{
 
-    @RequestMapping(method = RequestMethod.GET)
+    @RequestMapping(value = "/index", method = RequestMethod.GET)
     public String index(){
         return "/common/index";
     }

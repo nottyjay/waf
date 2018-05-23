@@ -89,10 +89,10 @@ public class MybatisPlusConfiguration {
 
     //    MyBatis 动态扫描
     @Bean
-    public MapperScannerConfigurer mapperScannerConfigurer(@Value("${mybatisPlus.basePackage}") String basePackage) {
+    public MapperScannerConfigurer mapperScannerConfigurer() {
         LOG.info("MapperScannerConfigurer init...");
         MapperScannerConfigurer mapperScannerConfigurer = new MapperScannerConfigurer();
-        mapperScannerConfigurer.setBasePackage(basePackage);
+        mapperScannerConfigurer.setBasePackage("com.d3code.waf.dao");
         return mapperScannerConfigurer;
     }
 
