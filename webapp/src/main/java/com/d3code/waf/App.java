@@ -1,5 +1,6 @@
 package com.d3code.waf;
 
+import com.d3code.waf.interceptor.ApplicationContextInterceptor;
 import com.d3code.waf.interceptor.LoginInteceptor;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -22,7 +23,8 @@ public class App implements WebMvcConfigurer {
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(new LoginInteceptor()).addPathPatterns("/**.xhtml").excludePathPatterns("/login.xhtml");
+        registry.addInterceptor(new ApplicationContextInterceptor()).addPathPatterns("/**");
+        registry.addInterceptor(new LoginInteceptor()).addPathPatterns("/**").excludePathPatterns("/login");
     }
 
     @Override

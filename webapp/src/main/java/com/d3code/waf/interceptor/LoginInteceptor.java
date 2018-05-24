@@ -15,8 +15,8 @@ public class LoginInteceptor extends HandlerInterceptorAdapter{
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         HttpSession session = request.getSession();
-        if((!request.getRequestURI().equals("login.xhtml")) && session.getAttribute(Admin.LOGIN_SESSION_KEY) == null){
-            response.sendRedirect("/login.xhtml");
+        if((!request.getRequestURI().equals("login")) && session.getAttribute(Admin.LOGIN_SESSION_KEY) == null){
+            response.sendRedirect("/login");
             return false;
         }
         return super.preHandle(request, response, handler);

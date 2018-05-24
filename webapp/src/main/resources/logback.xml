@@ -3,7 +3,7 @@
     <!--日志输出到文件下-->
     <appender name="rollingAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>logs/rest/%d{yyyy-MM-dd}.log</fileNamePattern>
+            <fileNamePattern>log/rest/%d{yyyy-MM-dd}.log</fileNamePattern>
             <MaxHistory>60</MaxHistory>
         </rollingPolicy>
         <encoder> <!--必须指定，否则不会往文件输出内容-->

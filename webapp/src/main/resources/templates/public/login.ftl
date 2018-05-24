@@ -30,7 +30,7 @@
         <div class="sp-logo-wrap pull-left">
             <a href="index.html">
                 <img class="brand-img mr-10" src="img/logo.png" alt="brand"/>
-                <span class="brand-text">doodle</span>
+                <span class="brand-text">D3code Web Application Firewall</span>
             </a>
         </div>
         <div class="clearfix"></div>
@@ -45,32 +45,20 @@
                     <div class="auth-form  ml-auto mr-auto no-float">
                         <div class="row">
                             <div class="col-sm-12 col-xs-12">
-                                <div class="mb-30">
-                                    <h3 class="text-center txt-dark mb-10">Sign in to Doodle</h3>
-                                    <h6 class="text-center nonecase-font txt-grey">Enter your details below</h6>
-                                </div>
                                 <div class="form-wrap">
-                                    <form action="#">
+                                    <form action="/login" method="post">
                                         <div class="form-group">
-                                            <label class="control-label mb-10" for="exampleInputEmail_2">Email address</label>
-                                            <input type="email" class="form-control" required="" id="exampleInputEmail_2" placeholder="Enter email">
+                                            <label class="control-label mb-10" for="exampleInputEmail_2">用户名</label>
+                                            <input type="text" class="form-control" required="" id="exampleInputEmail_2" placeholder="Enter username">
                                         </div>
                                         <div class="form-group">
-                                            <label class="pull-left control-label mb-10" for="exampleInputpwd_2">Password</label>
-                                            <a class="capitalize-font txt-primary block mb-10 pull-right font-12" href="forgot-password.html">forgot password ?</a>
+                                            <label class="pull-left control-label mb-10" for="exampleInputpwd_2">密码</label>
                                             <div class="clearfix"></div>
-                                            <input type="password" class="form-control" required="" id="exampleInputpwd_2" placeholder="Enter pwd">
+                                            <input type="password" class="form-control" required="" id="exampleInputpwd_2" placeholder="Enter password">
                                         </div>
 
-                                        <div class="form-group">
-                                            <div class="checkbox checkbox-primary pr-10 pull-left">
-                                                <input id="checkbox_2" required="" type="checkbox">
-                                                <label for="checkbox_2"> Keep me logged in</label>
-                                            </div>
-                                            <div class="clearfix"></div>
-                                        </div>
                                         <div class="form-group text-center">
-                                            <button type="submit" class="btn btn-info btn-rounded">sign in</button>
+                                            <button type="submit" class="btn btn-info btn-rounded">登 录</button>
                                         </div>
                                     </form>
                                 </div>
