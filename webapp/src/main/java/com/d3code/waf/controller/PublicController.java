@@ -1,6 +1,7 @@
 package com.d3code.waf.controller;
 
 import com.d3code.waf.entity.Admin;
+import com.d3code.waf.exception.WafException;
 import com.d3code.waf.service.AdminService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -27,7 +28,12 @@ public class PublicController extends BaseController{
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public String login(String username, String password, ModelMap modelMap){
-        boolean isAccess = adminService.login(username, password);
+        boolean isAccess = false;
+        try {
+            isAccess = adminService.login(username, password);
+        } catch (WafException e) {
+
+        }
         if(isAccess){
             Admin admin = adminService.selectByUsername(username);
             setSession(Admin.LOGIN_SESSION_KEY, admin);

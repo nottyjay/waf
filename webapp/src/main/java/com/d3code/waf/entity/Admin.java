@@ -9,7 +9,7 @@ import java.util.Date;
  * @author Aaron
  * @date 2018/5/23
  */
-@TableName("waf_config")
+@TableName("admin")
 public class Admin extends BaseEntity{
 
     public static final String LOGIN_SESSION_KEY = "login_waf_admin";
