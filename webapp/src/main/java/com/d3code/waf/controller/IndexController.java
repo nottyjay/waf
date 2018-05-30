@@ -14,6 +14,6 @@ public class IndexController extends BaseController{
 
     @RequestMapping(value = "/index", method = RequestMethod.GET)
     public String index(){
-        return "/public/index";
+        return "/statistic/system";
     }
 }

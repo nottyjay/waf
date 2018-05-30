@@ -19,13 +19,12 @@ public class ApplicationContextInterceptor implements HandlerInterceptor {
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+        if(request.getRequestURI().equals("/")){
+            response.sendRedirect("/index.xhtml");
+            return false;
+        }
         ApplicationContext.initContext(request, response);
         return true;
-    }
-
-    @Override
-    public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
-
     }
 
 }

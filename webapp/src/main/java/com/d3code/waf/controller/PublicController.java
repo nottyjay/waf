@@ -38,6 +38,6 @@ public class PublicController extends BaseController{
             Admin admin = adminService.selectByUsername(username);
             setSession(Admin.LOGIN_SESSION_KEY, admin);
         }
-        return "redirect:/index";
+        return "redirect:/index.xhtml";
     }
 }

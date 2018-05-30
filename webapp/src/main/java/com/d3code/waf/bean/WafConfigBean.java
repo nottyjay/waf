@@ -5,28 +5,11 @@ package com.d3code.waf.bean;
  * @date 2018/4/25
  */
 public class WafConfigBean {
-    private Boolean cookie;
-    private Boolean ua;
-    private Boolean post;
-    private Boolean args;
-    private Boolean file;
+
     private Boolean cc;
     private Integer ccRate;
-    private Boolean scanner;
     private Boolean loadBalance;
     private Integer loadBalanceFailTimeout;
-    private Boolean chain;
-    private String[] chainServers;
-    private Boolean tls;
-    private Boolean mitm;
-    private Boolean whiteIp;
-    private Boolean blackIp;
-    private Boolean whiteUrl;
-    private Boolean blackUrl;
-    private Integer acceptorThreads;
-    private Integer clientToProxyWorkerThreads;
-    private Integer proxyToServerWorkerThreads;
-    private Integer serverPort;
     private Boolean socket;
     private String socketServer;
     private Integer socketServerPort;

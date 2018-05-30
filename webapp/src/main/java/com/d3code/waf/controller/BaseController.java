@@ -1,11 +1,13 @@
 package com.d3code.waf.controller;
 
 import com.d3code.waf.ApplicationContext;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
  * @author Aaron
  * @date 2018/5/23
  */
+@RequestMapping("/**.xhtml")
 public abstract class BaseController {
 
     public void setSession(String key, Object value){

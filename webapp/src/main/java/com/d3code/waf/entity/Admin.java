@@ -2,6 +2,7 @@ package com.d3code.waf.entity;
 
 import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.annotations.TableName;
+import org.apache.commons.codec.digest.DigestUtils;
 
 import java.util.Date;
 
@@ -60,5 +61,9 @@ public class Admin extends BaseEntity{
 
     public void setLastErrorLoginDate(Date lastErrorLoginDate) {
         this.lastErrorLoginDate = lastErrorLoginDate;
+    }
+
+    public static String getMD5SaltPassword(String password, String salt){
+        return DigestUtils.md5Hex(DigestUtils.md5Hex(password) + salt);
     }
 }

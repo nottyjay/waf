@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <title>Login -- D3Code Web Application Firewall</title>
+    <title>Login -- D3code Web Application Firewall</title>
     <meta name="author" content="Nottyjay"/>
+    <base href="/" />
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="favicon.ico">
@@ -46,15 +47,15 @@
                         <div class="row">
                             <div class="col-sm-12 col-xs-12">
                                 <div class="form-wrap">
-                                    <form action="/login" method="post">
+                                    <form action="/login.xhtml" method="post">
                                         <div class="form-group">
                                             <label class="control-label mb-10" for="exampleInputEmail_2">用户名</label>
-                                            <input type="text" class="form-control" required="" id="exampleInputEmail_2" placeholder="Enter username">
+                                            <input type="text" name="username" class="form-control" required="" id="exampleInputEmail_2" placeholder="Enter username">
                                         </div>
                                         <div class="form-group">
                                             <label class="pull-left control-label mb-10" for="exampleInputpwd_2">密码</label>
                                             <div class="clearfix"></div>
-                                            <input type="password" class="form-control" required="" id="exampleInputpwd_2" placeholder="Enter password">
+                                            <input type="password" name="password" class="form-control" required="" id="exampleInputpwd_2" placeholder="Enter password">
                                         </div>
 
                                         <div class="form-group text-center">

@@ -1,6 +1,11 @@
 # ====================server====================
+debug: true
 server:
   port: 8080
+
+spring:
+  application:
+    name: D3code Web Application Firewall
 # ====================mysql====================
 connection:
   url: jdbc:mysql://localhost:3306/waf?useUnicode=true&characterEncoding=utf8

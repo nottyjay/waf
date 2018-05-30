@@ -6,6 +6,7 @@ import com.d3code.waf.dao.AdminMapper;
 import com.d3code.waf.entity.Admin;
 import com.d3code.waf.exception.WafException;
 import com.d3code.waf.service.AdminService;
+import com.d3code.waf.util.CommonUtil;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
@@ -28,7 +29,7 @@ public class AdminServiceImpl extends ServiceImpl<AdminMapper, Admin> implements
         }
         // 添加管理员登录判断逻辑
         Admin persistent = selectByUsername(username);
-        if(password.equals(DigestUtils.md5Hex("password"))){
+        if(Admin.getMD5SaltPassword(password, persistent.getSalt()).equals(persistent.getPassword())){
             return true;
         }
         return false;
@@ -39,5 +40,20 @@ public class AdminServiceImpl extends ServiceImpl<AdminMapper, Admin> implements
         EntityWrapper<Admin> adminEntityWrapper = new EntityWrapper<>();
         adminEntityWrapper.eq("username", username);
         return selectOne(adminEntityWrapper);
+    }
+
+    @Override
+    public boolean insert(Admin entity) {
+        entity.setSalt(CommonUtil.randomSalt());
+        entity.setPassword(Admin.getMD5SaltPassword(entity.getPassword(), entity.getSalt()));
+        return super.insert(entity);
+    }
+
+    @Override
+    public boolean updateById(Admin entity) {
+        if(StringUtils.isNotBlank(entity.getPassword())){
+            entity.setPassword(Admin.getMD5SaltPassword(entity.getPassword(), entity.getSalt()));
+        }
+        return super.updateById(entity);
     }
 }
