@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <title>系统设置 -- D3code Web Application Firewall</title>
+    <title>站点管理 -- D3code Web Application Firewall</title>
     <meta name="description" content="Doodle is a Dashboard & Admin Site Responsive Template by hencework." />
     <meta name="keywords" content="admin, admin dashboard, admin template, cms, crm, Doodle Admin, Doodleadmin, premium admin templates, responsive admin, sass, panel, software, ui, visualization, web app, application" />
     <meta name="author" content="hencework"/>
@@ -34,22 +34,23 @@
                 <div class="panel panel-default card-view">
                     <div class="panel-heading">
                         <div class="pull-left">
-                            <h6 class="panel-title txt-dark">系统基础设定</h6>
+                            <h6 class="panel-title txt-dark">站点管理</h6>
                         </div>
                         <div class="clearfix"></div>
                     </div>
                     <div class="panel-wrapper collapse in">
                         <div class="panel-body">
-                            <div class="form-wrap mt-40">
-                                <table class="table table-striped mb-0">
+                            <div class="pull-right"><a href="/site/add.xhtml" class="btn btn-primary">添加站点</a></div>
+                            <div class="table-wrap mt-40">
+                                <table class="table mb-0">
                                     <thead>
                                     <tr>
-                                        <td>域名</td>
-                                        <td>DNS解析状态</td>
-                                        <td>协议状态</td>
-                                        <td>攻击监控</td>
-                                        <td>防护设置</td>
-                                        <td>操作</td>
+                                        <th>域名</th>
+                                        <th>DNS解析状态</th>
+                                        <th>协议状态</th>
+                                        <th>攻击监控</th>
+                                        <th>防护设置</th>
+                                        <th>操作</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -60,7 +61,11 @@
                                         <td></td>
                                         <td></td>
                                         <td></td>
-                                        <td></td>
+                                        <td>
+                                            <a href="/site/edit.xhtml?id=${siteConfig.id}">编辑</a>
+                                            <a href="/site/delete.xhtml?id=${siteConfig.id}">删除</a>
+                                            <a href="/site/config.xhtml">防护配置</a>
+                                        </td>
                                     </tr>
                                     [/#list]
                                     </tbody>

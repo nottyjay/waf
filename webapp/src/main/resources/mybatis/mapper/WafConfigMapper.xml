@@ -4,7 +4,7 @@
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        id, create_date, modify_date, status, waf_config, rule_interceptor
+        id, create_date, modify_date, status, acceptor_threads, client2proxy_worker_threads, proxy2server_worker_threads, rule_interceptor_json
     </sql>
 
 </mapper>

@@ -4,7 +4,7 @@
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        id, create_date, modify_date, status, domain, protocol_json, waf_config_json, ip_interceptor_json
+        id, create_date, modify_date, status, cookie, ua, post, args, file, domain, protocol_json, waf_config_json, ip_interceptor_json
     </sql>
 
 </mapper>

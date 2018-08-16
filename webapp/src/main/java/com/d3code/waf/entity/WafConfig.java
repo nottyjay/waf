@@ -14,11 +14,6 @@ import org.apache.commons.lang3.StringUtils;
 @TableName("waf_config")
 public class WafConfig extends BaseEntity {
 
-    private Boolean cookie;
-    private Boolean ua;
-    private Boolean post;
-    private Boolean args;
-    private Boolean file;
     @TableField("acceptor_threads")
     private Integer acceptorThreads;
     @TableField("client2proxy_worker_threads")
@@ -26,48 +21,8 @@ public class WafConfig extends BaseEntity {
     @TableField("proxy2server_worker_threads")
     private Integer proxyToServerWorkerThreads;
 
-    @TableField("rule_interceptor")
+    @TableField("rule_interceptor_json")
     private String ruleInterceptorJson;
-
-    public Boolean getCookie() {
-        return cookie;
-    }
-
-    public void setCookie(Boolean cookie) {
-        this.cookie = cookie;
-    }
-
-    public Boolean getUa() {
-        return ua;
-    }
-
-    public void setUa(Boolean ua) {
-        this.ua = ua;
-    }
-
-    public Boolean getPost() {
-        return post;
-    }
-
-    public void setPost(Boolean post) {
-        this.post = post;
-    }
-
-    public Boolean getArgs() {
-        return args;
-    }
-
-    public void setArgs(Boolean args) {
-        this.args = args;
-    }
-
-    public Boolean getFile() {
-        return file;
-    }
-
-    public void setFile(Boolean file) {
-        this.file = file;
-    }
 
     public Integer getAcceptorThreads() {
         return acceptorThreads;

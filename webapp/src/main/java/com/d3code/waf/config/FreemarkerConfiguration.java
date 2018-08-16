@@ -30,7 +30,7 @@ public class FreemarkerConfiguration {
         configuration.setDateTimeFormat("yyyy-MM-dd HH:mm:ss");
         configuration.setTimeFormat("HH:mm:ss");
         configuration.setDefaultEncoding("UTF-8");
-        configuration.setTemplateUpdateDelayMilliseconds(3600 * 1000);
+        configuration.setTemplateUpdateDelayMilliseconds(0 * 1000);
         configuration.setTagSyntax(freemarker.template.Configuration.AUTO_DETECT_TAG_SYNTAX);
         configuration.setWhitespaceStripping(true);
         configuration.setClassicCompatible(true);

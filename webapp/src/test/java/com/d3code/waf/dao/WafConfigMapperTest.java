@@ -24,7 +24,6 @@ public class WafConfigMapperTest extends BaseTest{
         WafConfigBean configBean = new WafConfigBean();
         RuleInterceptor ruleInterceptor = new RuleInterceptor();
         wafConfig.setRuleInterceptor(ruleInterceptor);
-        wafConfig.setWafConfig(configBean);
         wafConfigMapper.insert(wafConfig);
     }
 }
